@@ -1,5 +1,8 @@
 import axios from 'axios';
 import {useState, useEffect} from 'react';
+import './normalize.css'
+import './app.css'
+
 function App({id}) {
     console.log(id);
     const [producto, guardarProducto] = useState({
@@ -28,9 +31,10 @@ function App({id}) {
     );
     return (
         <>
+        <main className='caja-contenido col-9'>
             <h2>Editar Producto</h2>
             <form onSubmit={actualizaProducto}>
-            <div>
+            <div className='campo'>
                 <label>Nombre:</label>
                 <input
                     type="text"
@@ -41,7 +45,7 @@ function App({id}) {
                 />
             </div>
 
-            <div>
+            <div className='campo'>
             <label>Precio:</label>
             <input
                 type='number'
@@ -52,8 +56,9 @@ function App({id}) {
                 onChange={leeProducto}
             />
             </div>
-            <button type="submit">Guardar</button>
+            <button type="submit" className='btn btn-azul'>Guardar</button>
             </form>
+        </main>
         </>
     );
 }
